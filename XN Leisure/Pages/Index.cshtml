@@ -1,0 +1,56 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div>
+	<div>
+		<h1>
+			XN Leisure
+		</h1>
+	</div>
+	<div>
+		<form method="post" asp-page-handler="count">
+			<div>
+				<label>Find number of characters in input</label>
+			</div>
+			<div>
+				<label>Enter your input:</label>
+				<input id="word" name="word" type="text" />
+				<label>Enter a character:</label>
+				<input id="Input" name="input" type="text" />
+				<button type="submit" id="onPost">Submit</button>
+			</div>
+		</form>
+		@if (@ViewData["count"] != null)
+		{
+			<div class="text-danger">
+				<label>Result:</label>
+				<label>@ViewData["count"]</label>
+			</div>
+		}
+
+	</div>
+	<br />
+	<div>
+		<form method="post" asp-page-handler="sum">
+			<div>
+				<label>Calculate sum of input A and B</label>
+			</div>
+			<div>
+				<label>Input A:</label> <input id="A" type="number" name="A" />
+				<label>Input B:</label> <input id="B" type="number" name="B" />
+				<button type="submit">Submit</button>
+			</div>
+			
+		</form>
+		@if (@ViewData["sum"] != null)
+		{
+			<div class="text-danger">
+				<label>Result:</label>
+				<label>@ViewData["sum"]</label>
+			</div>
+		}
+	</div>
+</div>
